@@ -2,11 +2,8 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import './Post.css';
 import './PostLoading.css';
-import {
-  TbArrowBigUp,
-  TbArrowBigDown,
-  BiMessage,
-} from 'react-icons/ti';
+import { TbArrowBigUp, TbArrowBigDown} from 'react-icons/tb';
+import {BiMessage} from 'react-icons/bi';
 import getRandomNumber from '../../utils/getRandomNumber';
 import './PostLoading.css'
 
