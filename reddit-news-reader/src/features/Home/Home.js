@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import { AnimatedList } from 'react-animated-list';
 import SkeletonContent from 'react-native-skeleton-content';
-import Post from '../Post/Post';
-import PostLoading from '../Post/PostLoading';
-//import getRandomNumber from '../../utils/getRandomNumber';
+import Post from '../Post/Post'; // Need to do!!!
+import PostLoading from '../Post/PostLoading'; // need to do!!!
 import {
   fetchPosts,
   selectFilteredPosts,
@@ -50,8 +48,8 @@ const Home = () => {
   if (error) {
     return (
       <div className="error">
-        <h2>Opps...</h2>
-        <p>Something went wrong when trying to load the post.</p>
+        <h2>Sorry...</h2>
+        <p>Something went wrong with the post.</p>
         <button 
           type="button" 
           onClick={() => dispatch(fetchPosts(selectedSubreddit))}
