@@ -100,7 +100,7 @@ main {
   left: 10px;
   width: 20px;
   height: 20px;
-  background-image: url(../../media/search-icon.png);
+  background-image: url(media/search-icon.png);
   background-size: cover;
 }
 
@@ -157,4 +157,5 @@ button[type="submit"]:hover {
 .article-container {
   cursor: pointer;
   border-radius: 6px;
-  border: solid 1px #141c3a;}
+  border: solid 1px #141c3a;
+}
