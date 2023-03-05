@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Box from '../../components/Box/Box';
 import { fetchSubreddits, selectSubreddits } from '../../store/subRedditSlice';
-//import './Subreddits.css';
+import './Subreddits.css';
 import {setSelectedSubreddit, selectSelectedSubreddit,} from '../../store/redditSlice';
 
 const Subreddits = () => {
