@@ -1,0 +1,26 @@
+.subreddit-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.subreddit-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.subreddit-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.subreddit-timestamp {
+  color: #999;
+  font-size: 14px;
+}
+
+.subreddit-body {
+  font-size: 16px;
+  line-height: 1.5;
+}

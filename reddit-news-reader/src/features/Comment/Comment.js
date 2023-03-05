@@ -3,6 +3,7 @@ import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 import Avatar from '../Avatar/Avatar';
+import './Comment.css'
 
 const Comment = (props) => {
   const { comment } = props;

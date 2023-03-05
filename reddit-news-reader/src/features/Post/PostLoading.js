@@ -8,6 +8,7 @@ import {
   BiMessage,
 } from 'react-icons/ti';
 import getRandomNumber from '../../utils/getRandomNumber';
+import './PostLoading.css'
 
 const PostLoading = () => {
   return (

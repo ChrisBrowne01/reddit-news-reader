@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import SkeletonContent from 'react-native-skeleton-content'
 import './Post.css';
-import { TbArrowBigDownFilled, TbArrowBigDown, TbArrowBigUpFilled, TbArrowBigUp, BiMessage} from 'react-icons/ti';
+import { TbArrowBigDownFilled, TbArrowBigDown, TbArrowBigUpFilled, TbArrowBigUp} from 'react-icons/tb';
+import {BiMessage} from 'react-icons/bi';
 import moment from 'moment';
 import shortenNumber from '../../utils/shortenNumber';
 import Box from '../../components/Box/Box';
 import Comment from '../Comment/Comment';
 import Avatar from '../Avatar/Avatar';
+import './Post.css'
 
 const Post = (props) => {
   const [voteRating, setvoteRating] = useState(0);
