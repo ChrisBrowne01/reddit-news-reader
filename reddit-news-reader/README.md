@@ -1,71 +1,92 @@
-# Getting Started with Create React App
+# Reddit News Reader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+## Overview
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
+This project was built as a Reddit application using everything I've learned, including React and Redux. Reddit is a website where people share links to articles, media and other things on the web. This Reddit API provides data which will allow users to view and search posts and comments, up vote and down vote which are provided by fetching Reddit API data.
 
 ## Wireframes
+
+Below are wireframes of the initial design for the project:
+
+    - Header ~ The user can search the data using terms
+    - Subreddits ~ The user can filter the data based on categories that are predefined.
+    - Home ~ Users see an initial view of the data when first visiting the app
+
+[Wire frame capition to be added]
 
 
 ## Technologies used
 
- - Get 90+ scores on [Lighthouse](https://web.dev/measure/)
- - React Redux/Toolkit - 
- - Rededit - To obtain data for the API.
- - VS Code - The code editor used to develop the API
+The project uses the following technologies:
 
+    **Languages Used:**
+    - HTML ~ Used to provide the user with a cohesive design system structure
+    - CSS ~ Used to provide the user with a cohesive design style, animations and transitions
+    - JavaScript ~ Used to develop to handle data fetching, rendering UI components, and managing state
+    - React ~ Used to create a dynamic, interactive, and reusable user interface.
+    - Redux/Toolkit - To create the components of the website.
+    - Jest and Enzyme ~ To write unit tests for the components.
+    - Wireframing ~ [Reddit Brand Guidlines](https://www.redditinc.com/assets/press-resources/reddit_brand_guidelines_202009-3.pdf) (PDF) Use to develop an application that uses the colour scheme of Reddit and for design layout ideas.
+    - Git and GitHub ~ Used for GIt Version Control and GItHub for deployment and publishing of the Reddit News Reader application online. This link can be found at [Reddit News Reader](https://github.com/ChrisBrowne01/reddit-news-reader.git)
+    - search icon ~ [www.pngfind.com](https://www.pngfind.com/mpng/xRJRmT_search-icon-icon-find-svg-hd-png-download/)
+    - Get 90+ scores on [Lighthouse](https://web.dev/measure/)
+    - Reddit logo ~ An SVG file used to provide what the application is used for.
+    - VS Code ~ The code editor used to develop the Reddit News Reader application.
+    - Rededit ~ using JSON to fetch data from the Reddit API to be used by within the Reddit News Reader project.
+    - Command line and file navigation ~ Use to create the Git Repositoy, connect it Remotely online & structure the files and folders.
+
+    **React Icons**
+    - React BoxIcons using *['react-icons/bi'](https://github.com/atisawd/boxicons)* module by atisawd.
+      Licenced by: [CC BY 4.0 License &copy;](https://github.com/atisawd/boxicons/blob/master/LICENSE).
+    - React Tabler Icons using *['react-icons/tb'](https://github.com/tabler/tabler-icons)* module by Paweł Kuna. 
+      Licenced by: [MIT &copy;](https://opensource.org/license/mit/).
+    - React Typicons using *['react-icons/ti'](http://s-ings.com/typicons/)* module by stephenhutchings and 5 other collaborators. 
+      Licenced by: [CC BY-SA 3.0 &copy;](https://creativecommons.org/licenses/by-sa/3.0/).
+
+    **React Animations and Transition Effect Components**
+    - Skeleton using *['react-loading-skeleton'](https://www.npmjs.com/package/react-loading-skeleton)* module by David Tang. Used for animation and transition effects on elements of the application.
+      Licenced by: [MIT &copy;](https://github.com/dvtng/react-loading-skeleton/blob/master/LICENSE).
+    - SkeletonContent using *['react-native-skeleton-content'](https://www.npmjs.com/package/react-native-skeleton-content?activeTab=readme#react-native-skeleton-content)* module by Zajac Alexandre. Used for animation effects on elements of the application.
+      Licenced by: [MIT &copy;](https://github.com/alexZajac/react-native-skeleton-content/blob/master/LICENSE.md)
+    
+    **React  Components**
+    - ReactMarkdown using *['react-markdown'](https://www.npmjs.com/package/react-markdown)* module by Espen Hovlandsdal. Used for reading MarkUp language in React.
+      Licenced by: [MIT &copy;](https://github.com/remarkjs/react-markdown/blob/HEAD/license).
+    - moment using *['moment']()* module by Matt Johnson and 7 other collaborators. Used for parsing, validating, manipulating, and formatting dates using data fetched from the Reddit API.
+      Licenced by: [MIT &copy;](https://github.com/moment/moment/blob/HEAD/LICENSE).
+  
 ## Features
 
-Animated Model of Post.
-Users can veiw and add their own comments to post.
-Users ca search for reddits, posts and comment.
-users and vote on posts, comments and reddits.
+    Animated Model of Post.
+    Users can veiw and add their own comments to post.
+    Users can search for reddits, posts and comment using terms.
+    Users and vote on posts, comments and reddits.
+    Users can filter the data based on categories that are predefined.
 
-## Future work
+## Features
+      
+    The Reddit News Reader project includes the following features:
 
-users may be able to add their own posts in the futer. 
+    Ability to browse subreddits and view their posts
+    Ability to create new posts and comment on existing ones
+    Upvoting and downvoting of posts
+    Sorting posts by various criteria (e.g. most recent, most popular)
+    Basic user authentication (using Reddit accounts)
 
-## Licence
-This API use MIT Licene &copy;
+## Future Work
+
+Some potential future improvements to the project include:
+
+    More robust user authentication and account management features
+    Additional sorting options and filters for posts
+    Improved error handling and data validation
+    Integration with more Reddit API endpoints to expand functionality
+
+## Collaborators
+
+The Reddit News Reader project is a solo project completed by [Chris Browne](https://github.com/ChrisBrowne01/reddit-news-reader.git).
+
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE.md file for details.
