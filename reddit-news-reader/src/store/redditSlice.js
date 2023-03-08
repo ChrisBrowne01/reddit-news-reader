@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   searchTerm: '',
   selectedSubreddit: '/r/pics/',
+  videoURL: null,
 };
 
 const redditSlice = createSlice({
@@ -59,21 +60,25 @@ const redditSlice = createSlice({
       state.posts[action.payload].loadingComments = false;
       state.posts[action.payload].error = true;
     },
+    setVideoURL(state, action) {
+      state.videoURL = action.payload;
+    },
   },
 });
 
 // Export Promise Lifecycle Actions
 export const {
-  setPosts, // set post 
-  getPostsFailed, // sets a rejected for geting post
-  getPostsSuccess, // set a fullfied for geting post
-  startGetPosts, // set a pending promise for getting post
-  setSearchTerm, // 
+  setPosts,
+  getPostsFailed,
+  getPostsSuccess, 
+  startGetPosts, 
+  setSearchTerm,
   setSelectedSubreddit,
   toggleShowingComments,
   getCommentsFailed,
   getCommentsSuccess,
   startGetComments,
+  setVideoURL,
 } = redditSlice.actions;
 
 export default redditSlice.reducer;
@@ -84,13 +89,19 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
     dispatch(startGetPosts());
     const posts = await getSubredditPosts(subreddit);
 
-    const postsWithMetadata = posts.map((post) => ({
-      ...post,
+    const postsWithMetadata = posts.map((post) => {
+      const metadata = {
       showingComments: false,
       comments: [],
       loadingComments: false,
       errorComments: false,
-    }));
+    };
+    if (post.media && post.media.type === 'video') {
+      metadata.videoURL = post.media.reddit_video.fallback_url;
+    }
+    return { ...post, ...metadata };
+  });
+
     dispatch(getPostsSuccess(postsWithMetadata));
   } catch (error) {
     dispatch(getPostsFailed());
@@ -109,8 +120,7 @@ export const fetchComments = (index, permalink) => async (dispatch) => {
 
 const selectPosts = (state) => state.reddit.posts;
 const selectSearchTerm = (state) => state.reddit.searchTerm;
-export const selectSelectedSubreddit = (state) =>
-  state.reddit.selectedSubreddit;
+export const selectSelectedSubreddit = (state) =>  state.reddit.selectedSubreddit;
 
 export const selectFilteredPosts = createSelector(
   [selectPosts, selectSearchTerm],

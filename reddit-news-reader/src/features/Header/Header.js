@@ -24,31 +24,31 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <div className="search-container">
-          <img className="reddit-logo" src={logo} alt="Reddit logo" />
-          <form onSubmit={onSearchTermSubmit} >
-              <span className='search-container'>
-                <input 
-                  id='search' 
-                  value={searchTermPhrase} 
-                  onChange={onSearchTermChange}
-                  type="text"
-                  placeholder="Search Reddit"
-                  aria-aria-label="Search post"
-                />
-              </span>
-             <button
-                className='search-button'
-                type='submit'
-                onClick={searchTermPhrase}
-                aria-aria-label="Search"
-              >
-                Search
-              </button>
-          </form>
-        </div>
-    </div>
+    <header className="head">
+      <div className="header-container">
+        <img className="reddit-logo" src={logo} alt="Reddit logo" />
+      </div>
+      <form className="search-bar-container" onSubmit={onSearchTermSubmit} >
+        <span className='search-container'>
+          <input 
+            id='search' 
+            value={searchTermPhrase} 
+            onChange={onSearchTermChange}
+            type="text"
+            placeholder="      Search Reddit"
+            aria-label="Search post"
+          />
+        </span>
+         <button
+          className='search-button'
+          type='submit'
+          onClick={onSearchTermSubmit}
+          aria-label="Search"
+        >
+        Search
+        </button>
+      </form>
+    </header>
   );
 };
 

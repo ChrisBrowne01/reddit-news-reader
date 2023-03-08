@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import SkeletonContent from 'react-native-skeleton-content'
 import './Post.css';
+import ReactPlayer from 'react-player';
 import { TbArrowBigDownFilled, TbArrowBigDown, TbArrowBigUpFilled, TbArrowBigUp} from 'react-icons/tb';
 import {BiMessage} from 'react-icons/bi';
+import Skeleton from 'react-loading-skeleton';
 import moment from 'moment';
 import shortenNumber from '../../utils/shortenNumber';
 import Box from '../../components/Box/Box';
 import Comment from '../Comment/Comment';
 import Avatar from '../Avatar/Avatar';
-import './Post.css'
 
 const Post = (props) => {
   const [voteRating, setvoteRating] = useState(0);
@@ -27,31 +27,7 @@ const Post = (props) => {
       setvoteRating(-1);
     }
   };
-
-  const renderUpVote = () => {
-    if (voteRating === 1) {
-      return <TbArrowBigUpFilled className="vote-action" />;
-    }
-    return <TbArrowBigUp className="vote-action" />;
-  };
-
-  const renderDownVote = () => {
-    if (voteRating === -1) {
-      return <TbArrowBigDownFilled className="vote-action" />;
-    }
-    return <TbArrowBigDown className="vote-action" />;
-  };
-
-  const getVoteType = () => {
-    if (voteRating === 1) {
-      return 'up-vote';
-    }
-    if (voteRating === -1) {
-      return 'down-vote';
-    }
-    return '';
-  };
-
+  
   const renderComments = () => {
     if (post.errorComments) {
       return (
@@ -64,10 +40,10 @@ const Post = (props) => {
     if (post.loadingComments) {
       return (
         <div>
-          <SkeletonContent />
-          <SkeletonContent />
-          <SkeletonContent />
-          <SkeletonContent />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
         </div>
       );
     }
@@ -92,35 +68,58 @@ const Post = (props) => {
 
           <div className="votes-container">
 
-            <button
-              type="button"
-              className={`vote-action up-vote ${voteRating === 1 && 'active'}`}
-              onClick={() => onVote(1)}
-              aria-label="upvote">
-              {renderUpVote()}
-            </button>
+          <button
+            type="button"
+            className={`vote-action up-vote ${voteRating === 1 && 'active'}`}
+            onClick={() => onVote(1)}
+            aria-label="upvote"
+          >
+            {voteRating === 1 ? (
+              <TbArrowBigUpFilled className="vote-action" />
+            ) : (
+              <TbArrowBigUp className="vote-action" />
+            )}
+          </button>
 
-            <p className={`post-votes-value ${getVoteType()}`}>
-              {shortenNumber(post.ups, 1)}
-            </p>
+          <p className={`post-votes-value ${voteRating === 1 ? 'up-vote' : voteRating === -1 ? 'down-vote' : ''}`}>
+            {shortenNumber(post.ups, 1)}
+          </p>
 
-            <button
-              type="button"
-              className={`vote-action down-vote ${voteRating === -1 && 'active'}`}
-              onClick={() => onVote(-1)}
-              aria-label="downvote">
-              {renderDownVote()}
-            </button>
+          <button
+            type="button"
+            className={`vote-action down-vote ${voteRating === -1 && 'active'}`}
+            onClick={() => onVote(-1)}
+            aria-label="downvote"
+          >
+            {voteRating === -1 ? (
+              <TbArrowBigDownFilled className="vote-action" />
+            ) : (
+              <TbArrowBigDown className="vote-action" />
+            )}
+          </button>
 
           </div>
           <div className="post-container">        
           <h3 className='current-article-title'>{post.title}</h3>
-
-          <div className='post-image-container'>
-            <img src={post.url} alt="" className="image-post"/>
-          </div>
-            
-          <div>
+          {post.media && post.media.reddit_video ? (
+            <ReactPlayer
+              width="100%"
+              src={post.media.reddit_video.fallback_url}
+              controls
+              loop={true}
+              preload='auto'
+              className={`post-media ${post.over_18 && 'over-18-content'}`}
+            />
+          ) : !post.kind === 't1_' ? (
+            <div className='post-image-container'>
+            {post.url && <img src={post.url} alt="" style={"display:none;"} className="image-post"/>}
+              </div>
+          ) : (
+            <div className='post-image-container'>
+            {post.url && <img src={post.url} alt="" className="image-post"/>}
+              </div>
+          )}
+          <div className="avatar">
             <span>
               <Avatar naem={post.author} />
               <span className="author-username">By {post.author}</span>
@@ -128,7 +127,7 @@ const Post = (props) => {
             </span>
             <span>{moment.unix(post.created_utc).fromNow()}</span>
             <span className="post-comments-container">
-              <hr />
+              <hr / >
               <button
                 type="button"
                 className={`vote-action-button ${post.showingComments && 'showing-comments'}`}

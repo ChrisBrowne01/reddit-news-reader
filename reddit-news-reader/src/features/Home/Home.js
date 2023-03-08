@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SkeletonContent from 'react-native-skeleton-content';
-import Post from '../Post/Post'; // Need to do!!!
-import PostLoading from '../Post/PostLoading'; // need to do!!!
+import { SkeletonTheme } from 'react-loading-skeleton';
+import Post from '../Post/Post'; 
+import PostLoading from '../Post/PostLoading';
+import '../Post/PostLoading.css';
 import {
   fetchPosts,
   selectFilteredPosts,
@@ -13,35 +14,44 @@ import './Home.css';
 
 const Home = () => {
   const reddit = useSelector((state) => state.reddit);
-  // 1. isLoading and error are used to conditionally render a loading animation or an error message.
-  // 2. searchTerm and selectedSubreddit are used as inputs to the fetchPosts and fetchComments actions. 
   const { isLoading, error, searchTerm, selectedSubreddit } = reddit;
-  // posts is used to render a list of post filtered post for the search.
   const posts = useSelector(selectFilteredPosts);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts(selectedSubreddit));
-  }, [selectedSubreddit]);
+  }, [dispatch, selectedSubreddit]); // add dispatch to the dependency array
 
-  // Fetches comments and sets the toggle  up
+  // Fetches comments and sets the toggle up
   const onToggleComments = (index) => {
     const getComments = (permalink) => {
-   dispatch(fetchComments(index, permalink));
-  }
-  return getComments
+      dispatch(fetchComments(index, permalink));
+    }
+    return getComments
   }
 
-  //what to do if and when the post is pending
+  // what to do if and when the post is pending
   if (isLoading) {
     return (
-      <SkeletonContent
-        containerStyle={{flex: 1, width: 300}}
+      <SkeletonTheme 
+        baseColor="#202020" 
+        highlightColor="#444"
         animationDirection="horizontalLeft"
         isLoading={true}
       >
-        <PostLoading />
-      </SkeletonContent>
+        <div className="subreddit-container">
+          <div className="post-loading-container">
+            <PostLoading />
+            <PostLoading />
+            <PostLoading />
+          </div>
+          <div className="post-loading-container">
+            <PostLoading />
+            <PostLoading />
+            <PostLoading />
+          </div>
+        </div>
+      </SkeletonTheme>
     );
   }
   // what to do if there is an error with post loading
@@ -72,7 +82,7 @@ const Home = () => {
   }
 
   return (
-      <div>
+    <div>
       {posts.map((post, index) => (
         <Post
           key={post.id}
@@ -80,7 +90,7 @@ const Home = () => {
           onToggleComments={onToggleComments(index)}
         />
       ))}
-      </div>
+    </div>
   );
 };
 

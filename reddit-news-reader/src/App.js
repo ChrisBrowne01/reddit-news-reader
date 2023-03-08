@@ -1,19 +1,21 @@
 import React from 'react';
 import './App.css';
-import Home from './features/Home/Home';
 import Header from './features/Header/Header';
+import Home from './features/Home/Home';
 import Subreddits from './features/Subreddits/Subreddits';
 
 function App() {
   return (
     <>
-      <Header />
+      <Header className="header-container"/>
+      <header className="header-container">
+      <aside>
+       <Subreddits />
+      </aside>
       <main>
         <Home />
       </main>
-      <aside>
-        <Subreddits />
-      </aside>
+      </header>
     </>
   );
 }

@@ -46,4 +46,4 @@ export const fetchSubreddits = () => async (dispatch) => {
 };
 
 
-export const selectSubreddits = (state) => state.subreddits.subreddits;
+export const selectSubreddits = (state) => state.subReddit.subreddits;

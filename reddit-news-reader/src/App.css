@@ -8,8 +8,41 @@
   --color-text-secondary: #717171;
   --color-text-invert: #ffffff;
   --color-text-link: #4ec3f5;
-  --color-branding: #3d5af1;
-  --color-branding-transparent: #3d5af140;
+  --color-branding: #7193FF; /* PERIWINKLE */
+  --color-branding-transparent: #7193FF40;
+  
+  --color-background-1: #f7f7f7;
+  --color-background-secondary-1: #f0f0f0;
+  --color-foreground-1: #ffffff;
+  --color-border-1: #0079d3;
+  --color-text-header-1: #1a1a1b;
+  --color-text-body-1: #6f6f6f;
+  --color-text-secondary-1: #717171;
+  --color-text-invert-1: #ffffff;
+  --color-text-link-1: #4ec3f5;
+  --color-branding-1: #FEB331; /* Mango */
+  --color-branding-transparent-1: #FEB33140;
+  --color-on-hover-1: #005ea1;
+
+  --color-text-link-2: #4ec3f5;
+  --color-branding-2: #14D8C3; /* Mango */
+  --color-branding-transparent-2: #14D8C340;
+  
+  --color-text-link-3: #4ec3f5;
+  --color-branding-3: #FF99AA; /* SAKURA */
+  --color-branding-transparent-3: #FF99AA40;
+
+  --color-text-link-4: #4ec3f5;
+  --color-branding-4: #EAD49D; /* HEDGEHOG */
+  --color-branding-transparent-4: #EAD49D40;
+
+  --color-text-link-5: #4ec3f5;
+  --color-branding-5: #FFF1B6; /* LEMONADE */
+  --color-branding-transparent-5: #FFF1B640;
+
+  --color-text-link-6: #4ec3f5;
+  --color-branding-6: #1B2426; /* ORCA */
+  --color-branding-transparent-6: #1B242640;
 
   --color-alert: #ff304f;
   --color-success: #45b81f;
@@ -29,6 +62,8 @@
 
   --radius: 4px;
   --radius-2: 8px;
+
+  --raduis-btn: 50px
 }
 
 html,
@@ -39,123 +74,4 @@ body {
 
 p {
   margin: 0;
-}
-html,
-body {
-  margin: 0;
-  font-family: 'Oxygen', sans-serif;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  background-color: #dae0e6;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  background-color: #dae0e6;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #FF4500;
-  padding: 10px;
-}
-
-.reddit-logo {
-  height: 50px;
-  margin-left: 20px;
-}
-
-.search-container {
-  position: relative;
-  display: inline-block;
-}
-
-.search-container input[type="text"] {
-  width: 300px;
-  padding: 10px 20px 10px 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  color: #555;
-}
-
-.search-container input[type="text"]:focus {
-  outline: none;
-  border-color: #0079d3;
-  box-shadow: 0 0 5px #0079d3;
-}
-
-.search-container::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 20px;
-  height: 20px;
-  background-image: url(media/search-icon.png);
-  background-size: cover;
-}
-
-.search-container {
-  margin-right: 20px;
-}
-
-label {
-  display: inline-block;
-  margin-right: 10px;
-  color: white;
-}
-
-input[type="text"] {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
-
-button[type="submit"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: white;
-  color: #ff4500;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #ff4500;
-  color: white;
-}
-
-.articles-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 215px);
-  grid-gap: 16px;
-  justify-content: center;
-  background-color: #f2f2f2;
-  padding-bottom: 48px;
-}
-
-.current-article-container {
-  padding: 24px 16px 32px 16px;
-}
-
-.comments-container {
-  padding: 0 16px 0 16px;
-}
-
-.article-container {
-  cursor: pointer;
-  border-radius: 6px;
-  border: solid 1px #141c3a;
 }

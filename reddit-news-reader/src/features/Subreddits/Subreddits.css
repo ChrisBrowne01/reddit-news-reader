@@ -24,3 +24,54 @@
   font-size: 16px;
   line-height: 1.5;
 }
+
+box {
+  border-radius: var(--radius);
+}
+
+h2 {
+  text-align: center;
+}
+
+li.selected-subreddit button {
+  background: var(--color-branding-transparent-1);
+  border-left: 5px solid var(--color-branding-1);
+  border-radius: var(--radius);
+}
+
+.false {
+  background-color: var(--color-background);
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li button {
+  width: 100%;
+  height:auto;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;  
+  padding-block: var(--spacing-1);
+  line-height: 16px;
+  margin: var(--spacing-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+li button:hover {
+  background: var(--color-on-hover);
+  border-left: 10px solid var(--color-branding-transparent-1);
+
+}
+
+.subreddit-icon {
+  height: auto;
+  width: 30%;
+  border-radius: 50%;
+  margin-right: var(--spacing-1);
+}
