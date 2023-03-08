@@ -12,8 +12,9 @@ Below are wireframes of the initial design for the project:
   - Subreddits ~ The user can filter the data based on categories that are predefined.
   - Home ~ Users see an initial view of the data when first visiting the app
 
-  ![Responsive Desktop Wireframe](./src/media/ "Responsive Desktop Wireframe")
+  ![Responsive Desktop Wireframe](./src/media/desktop-wireframe.jpg "Responsive Desktop Wireframe")
 
+  ![Responsive Mobile Wireframe](./src/media/mobile-wireframe.jpg "Responsive Mobile Wireframe")
 
 ## Technologies used
 
